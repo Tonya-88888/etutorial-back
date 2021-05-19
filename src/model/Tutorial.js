@@ -11,8 +11,8 @@ const schema = new Schema({
     type: String,
     default: "",
   },
-  sections: {
-    type: [ObjectId],
+  id_User: {
+    type: ObjectId ,
     default: "",
   },
 });

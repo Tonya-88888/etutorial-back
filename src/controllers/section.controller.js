@@ -1,14 +1,32 @@
 const boom = require("boom");
+const bcrypt = require("bcryptjs");
 
-const genericUser = (model) => ({
+const { Section, Tutorial } = require("../model");
+
+const genericSection = (model) => ({
+
   async get({ params: { id } }, res) {
+    // "content": "<h2>nen</h2>",
+
     try {
-      consle.log("asasasasasaasaasasasas");
-      const item = await model.findById(id).populate(get);
+      const item = await model.find({ id_Tutorial: id });
       return res.status(200).send(item);
     } catch (err) {
       return res.status(400).send(boom.boomify(err));
     }
+
+    //  const item = await model.find({
+    //    _id: {
+    //      $in: ["609948e8f018510dacecf206"],
+    //    },
+    //  });
+
+    // try {
+    //   const item = await model.findById(id);
+    //   return res.status(200).send(item);
+    // } catch (err) {
+    //   return res.status(400).send(boom.boomify(err));
+    // }
   },
   async getAll(req, res) {
     try {
@@ -19,7 +37,6 @@ const genericUser = (model) => ({
     }
   },
   async create({ body }, res) {
-    // title: Contrlo
     try {
       const item = new model(body);
       const newItem = await item.save();
@@ -29,7 +46,6 @@ const genericUser = (model) => ({
     }
   },
   async update({ params: { id }, body }, res) {
-    // title: Control
     try {
       const item = await model.findByIdAndUpdate(id, body, { new: true });
       return res.status(200).send(item);
@@ -40,11 +56,11 @@ const genericUser = (model) => ({
   async delete({ params: { id } }, res) {
     try {
       await model.findByIdAndDelete(id);
-      return res.status(200).send({ status: "OK", message: "Продукт удален" });
+      return res.status(200).send({ status: "OK", message: "Параграф удален" });
     } catch (err) {
       return res.status(400).send(boom.boomify(err));
     }
   },
 });
 
-module.exports = genericUser; 
+module.exports = genericSection(Section);

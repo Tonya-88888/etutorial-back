@@ -1,4 +1,3 @@
-
 const express = require("express");
 const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
@@ -12,12 +11,11 @@ const PORT = 3000;
 
 try {
   mongoose.connect("mongodb://localhost:27017/etutorial", {
-  useUnifiedTopology: true,
-  useNewUrlParser: true,
-});
-}
-catch (err)  {
-  console.log("ошибка сервера")
+    useUnifiedTopology: true,
+    useNewUrlParser: true,
+  });
+} catch (err) {
+  console.log("ошибка сервера");
 }
 
 //инициализация приложения
@@ -31,13 +29,12 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // app.use('/', (_, res) => res.sendFile(join(__dirname + '/index.html')));
 
-
-
-  app.use(`/api/v1/users`, require(`./src/routes/users`));
+app.use(`/api/v1/users`, require(`./src/routes/users`));
+app.use(`/api/v1/tutorials`, require(`./src/routes/tutorials`));
+app.use(`/api/v1/sections`, require(`./src/routes/sections`));
 
 // объявим наши  роуты
 
 http.createServer({}, app).listen(PORT);
 
 console.log(`Server running at ${PORT}`);
-

@@ -15,6 +15,9 @@ const schema = new Schema({
     type: String,
     default: "",
   },
+  id_Tutorial: {
+    type: ObjectId,
+  },
 });
 
 module.exports = model("Section", schema);

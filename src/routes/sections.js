@@ -2,7 +2,8 @@ const router = require("express-promise-router")();
 
 const { section } = require("../controllers");
 
-router.route("/:id").get(section.get);
+router.route("/tutorial/:id").get(section.get);
+router.route("/:id").get(section.getAll);
 router.route("/").post(section.create);
 router.route("/").get(section.getAll);
 router.route("/:id").put(section.update);

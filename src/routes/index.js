@@ -1,3 +1,3 @@
 module.exports = {
-  routes: ["users"],
+  routes: ["users", "tutorials","sections"]
 };
