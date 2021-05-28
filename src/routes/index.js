@@ -1,3 +1,3 @@
 module.exports = {
-  routes: ["users", "tutorials","sections"]
+  routes: ["users", "tutorials","sections", "qwiz"]
 };

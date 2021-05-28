@@ -1,32 +1,17 @@
+//const genericUser = require("./generic.controller");
 const boom = require("boom");
 const bcrypt = require("bcryptjs");
 
-const { Section } = require("../model");
+const { Qwiz } = require("../model");
 
-const genericSection = (model) => ({
-
+const genericTutorial = (model) => ({
   async get({ params: { id } }, res) {
-    // "content": "<h2>nen</h2>",
-
     try {
-      const item = await model.find({ id_Tutorial: id });
+      const item = await model.find({ id_Section: id });
       return res.status(200).send(item);
     } catch (err) {
       return res.status(400).send(boom.boomify(err));
     }
-
-    //  const item = await model.find({
-    //    _id: {
-    //      $in: ["609948e8f018510dacecf206"],
-    //    },
-    //  });
-
-    // try {
-    //   const item = await model.findById(id);
-    //   return res.status(200).send(item);
-    // } catch (err) {
-    //   return res.status(400).send(boom.boomify(err));
-    // }
   },
   async getAll(req, res) {
     try {
@@ -56,11 +41,11 @@ const genericSection = (model) => ({
   async delete({ params: { id } }, res) {
     try {
       await model.findByIdAndDelete(id);
-      return res.status(200).send({ status: "OK", message: "Параграф удален" });
+      return res.status(200).send({ status: "OK", message: "Вопрос удален" });
     } catch (err) {
       return res.status(400).send(boom.boomify(err));
     }
   },
 });
 
-module.exports = genericSection(Section);
+module.exports = genericTutorial(Qwiz);
