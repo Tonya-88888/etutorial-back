@@ -1,11 +1,11 @@
-const User = require('./User')
-const Tutorial = require('./Tutorial')
+const User = require("./User");
+const Tutorial = require("./Tutorial");
 const Section = require("./Section");
-const Qwiz = require("./Qwiz");
+const Quiz = require("./Quiz");
 
 module.exports = {
   User,
   Tutorial,
   Section,
-  Qwiz
+  Quiz,
 };

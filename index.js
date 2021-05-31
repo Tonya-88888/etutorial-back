@@ -5,7 +5,7 @@ const http = require("http");
 const cors = require("cors");
 const { routes } = require("./src/routes");
 const path = require("path");
-const fs = require ('fs')
+const fs = require("fs");
 
 const PORT = 3000;
 //подключение к бд
@@ -33,9 +33,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(`/api/v1/users`, require(`./src/routes/users`));
 app.use(`/api/v1/tutorials`, require(`./src/routes/tutorials`));
 app.use(`/api/v1/sections`, require(`./src/routes/sections`));
-app.use(`/api/v1/qwiz`, require(`./src/routes/qwiz`));
-
-
+app.use(`/api/v1/quiz`, require(`./src/routes/quiz`));
 
 // объявим наши  роуты
 

@@ -2,7 +2,7 @@
 const boom = require("boom");
 const bcrypt = require("bcryptjs");
 
-const { Qwiz } = require("../model");
+const { Quiz } = require("../model");
 
 const genericTutorial = (model) => ({
   async get({ params: { id } }, res) {
@@ -48,4 +48,4 @@ const genericTutorial = (model) => ({
   },
 });
 
-module.exports = genericTutorial(Qwiz);
+module.exports = genericTutorial(Quiz);
